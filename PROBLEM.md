@@ -1,3 +1,5 @@
+# Problem
+
 The goal of the challenge is to implement a system that analyses financial transaction records. A transaction record 
 describes transferring money from one account to another account. As such, each transaction record will have the 
 following fields:

@@ -10,7 +10,13 @@ following sections to build, test and run the project.
 ./gradlew clean build clean build
 ```
 
-### Run
+### Run the tests
+
+```
+./gradlew clean build test
+```
+
+### Run the application
 Four parametes are required to run the application:
 
 * CSV's filepath
@@ -35,12 +41,6 @@ The expected output is:
 > Task :run
 Relative balance for the period is: $.00
 Number of transactions included is: 0
-```
-
-### Tests
-
-```
-./gradlew clean build test
 ```
 
 ## Potential improvements
