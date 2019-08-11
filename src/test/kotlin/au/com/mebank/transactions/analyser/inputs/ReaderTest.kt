@@ -12,15 +12,13 @@ import kotlin.streams.toList
 internal class ReaderTest {
     @Nested
     inner class ReadStreamOfString {
-        private lateinit var reader: Reader
         private lateinit var filepath: String
         private lateinit var result: List<Transaction>
 
         @BeforeEach
         fun setup() {
-            reader      = Reader()
             filepath    = javaClass.classLoader.getResource("example.csv").path
-            result      = reader.read(filepath).toList()
+            result      = read(filepath).toList()
         }
 
         @Nested
