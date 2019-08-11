@@ -6,7 +6,7 @@ import java.nio.file.Paths
 import java.util.stream.Stream
 
 class Reader {
-    fun read(filename: String): Stream<Transaction> = read(Files.lines(Paths.get(filename)))
+    fun read(filename: String): Stream<Transaction> = read(Files.lines(Paths.get(filename)).skip(1))
 
-    fun read(lines: Stream<String>): Stream<Transaction> = lines.map { csv2Transaction(it) }
+    private fun read(lines: Stream<String>): Stream<Transaction> = lines.map { csv2Transaction(it) }
 }

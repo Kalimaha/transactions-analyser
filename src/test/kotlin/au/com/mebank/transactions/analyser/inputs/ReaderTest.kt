@@ -7,34 +7,31 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import java.text.SimpleDateFormat
-import java.util.stream.Stream
 import kotlin.streams.toList
 
 internal class ReaderTest {
-    companion object {
-        private const val VALID_CSV_LINE = "TX10001, ACC334455, ACC778899, 20/10/2018 12:47:55, 25.00, PAYMENT,"
-    }
-
     @Nested
     inner class ReadStreamOfString {
         private lateinit var reader: Reader
+        private lateinit var filepath: String
+        private lateinit var result: List<Transaction>
 
         @BeforeEach
         fun setup() {
-            reader = Reader()
+            reader      = Reader()
+            filepath    = javaClass.classLoader.getResource("example.csv").path
+            result      = reader.read(filepath).toList()
         }
 
         @Nested
         inner class WhenStreamIsValid {
             @Test
             fun `result is not empty`() {
-                val result = reader.read(Stream.of(VALID_CSV_LINE)).toList()
-                assertThat(result).isNotEmpty
+                assertThat(result.size).isEqualTo(5)
             }
 
             @Test
             fun `result is correctly deserialised`() {
-                val result = reader.read(Stream.of(VALID_CSV_LINE)).toList()
                 assertThat(result).first().isEqualTo(
                     Transaction(
                         transactionId = "TX10001",
