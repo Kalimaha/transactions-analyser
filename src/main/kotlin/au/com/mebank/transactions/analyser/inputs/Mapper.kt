@@ -4,7 +4,7 @@ import au.com.mebank.transactions.analyser.constants.TransactionType
 import au.com.mebank.transactions.analyser.models.Transaction
 import java.text.SimpleDateFormat
 
-private const val DATE_FORMAT = "dd/MM/yyyy HH:mm:ss"
+const val DATE_FORMAT = "dd/MM/yyyy HH:mm:ss"
 
 fun csv2Transaction(csvLine: String): Transaction {
     val values = csvLine.split(",")

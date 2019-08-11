@@ -23,4 +23,18 @@ class AccountEngineTest {
             Assertions.assertThat(accountBalance).isEqualTo(AccountBalance(-5.0, 1))
         }
     }
+
+    @Nested
+    inner class WhenThereAreReversals {
+        @BeforeEach
+        fun init() {
+            filepath        = javaClass.classLoader.getResource("example.csv").path
+            accountBalance  = balance(filepath = filepath, accountId = "ACC334455", from = "20/10/2018 12:00:00", to = "20/10/2018 19:00:00")
+        }
+
+        @Test
+        fun `it returns the account balance without the reversals`() {
+            Assertions.assertThat(accountBalance).isEqualTo(AccountBalance(-25.0, 1))
+        }
+    }
 }
