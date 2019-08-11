@@ -16,8 +16,6 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
     implementation(kotlin("reflect"))
-    implementation("com.fasterxml.jackson.module", "jackson-module-kotlin", "2.9+")
-    implementation("com.fasterxml.jackson.datatype", "jackson-datatype-jsr310", "2.9+")
 
     testImplementation("org.junit.jupiter", "junit-jupiter", "5.4.2")
     testImplementation("org.assertj", "assertj-core", "3.11.1")
